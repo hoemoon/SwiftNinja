@@ -78,7 +78,16 @@ struct ArrayPractice {
         return resultArray
     }
     
-//    func makeMagicSquare(row: Int) -> Array<Array<Int>>.Element {
-//        <#function body#>
-//    }
+    func makeMagicSquare(row: Int) -> Array<Array<Int>> {
+        var resultArray = Array<Array<Int>>()
+        
+        for _ in 1...row {
+            let tempArray = Array<Int>(repeating: 0, count: row)
+            resultArray.append(tempArray)
+        }
+        resultArray[2][1] = 1
+        
+        
+        return resultArray
+    }
 }

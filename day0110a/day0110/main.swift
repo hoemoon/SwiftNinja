@@ -30,5 +30,6 @@ func testInterest(unitDay: Int) {
 
 let arrayPractice:ArrayPractice = ArrayPractice()
 //arrayPractice.printArray(array: arrayPractice.tempArray(lines: 5))
-arrayPractice.printArray(array: arrayPractice.fillArray(lines: 5))
-arrayPractice.printArray(array: arrayPractice.setBoolArray(lines: 5), newChar: "#")
+//arrayPractice.printArray(array: arrayPractice.fillArray(lines: 5))
+//arrayPractice.printArray(array: arrayPractice.setBoolArray(lines: 5), newChar: "#")
+arrayPractice.printArray(array: arrayPractice.makeMagicSquare(row: 3))

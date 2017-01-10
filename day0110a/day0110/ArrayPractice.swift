@@ -18,6 +18,20 @@ struct ArrayPractice {
         }
     }
     
+    func printArray(array: Array<Array<Bool>>, newChar:Character) {
+        for innerArray in array {
+            for item in innerArray {
+                if(item == true) {
+                    print(newChar, terminator: "")
+                }
+                if(item == false) {
+                    print(" ", terminator:"")
+                }
+            }
+            print()
+        }
+    }
+    
     func tempArray(lines: Int) -> Array<Array<Int>> {
         var resultArray = Array<Array<Int>>()
         for _ in 1...lines {
@@ -40,7 +54,28 @@ struct ArrayPractice {
                 tempArray.append(xLoop)
             }
             count = count + 1
-
+            resultArray.append(tempArray)
+        }
+        return resultArray
+    }
+    
+    func setBoolArray (lines: Int) -> Array<Array<Bool>> {
+        var resultArray = Array<Array<Bool>>()
+        
+        for outIndex in 0...lines - 1 {
+            var tempArray = Array<Bool>()
+            
+            for index in 0...abs(outIndex - lines) - 1 {
+                
+                if (index == 0){
+                    continue
+                }
+                tempArray.append(false)
+            }
+            
+            for _ in 0...outIndex {
+                tempArray.append(true)
+            }
             resultArray.append(tempArray)
         }
         return resultArray

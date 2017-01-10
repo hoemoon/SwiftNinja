@@ -26,4 +26,7 @@ func testInterest(unitDay: Int) {
     }
 }
 
-testInterest(unitDay: 5) 
+//testInterest(unitDay: 5) 
+
+var arrayPractice:ArrayPractice = ArrayPractice()
+arrayPractice.printArray(array: arrayPractice.tempArray(lines: 5))

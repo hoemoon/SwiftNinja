@@ -80,13 +80,55 @@ struct ArrayPractice {
     
     func makeMagicSquare(row: Int) -> Array<Array<Int>> {
         var resultArray = Array<Array<Int>>()
+        let end = row * row
         
         for _ in 1...row {
             let tempArray = Array<Int>(repeating: 0, count: row)
             resultArray.append(tempArray)
         }
-        resultArray[2][1] = 1
+        resultArray[row - 1][row - 1 - (row - 1)/2] = 1
         
+        
+        // 재귀 함수
+        // 좌표를 받고 다음 좌표를 반환해야 함
+        // 매개변수로 2,1
+        // 단순히 다음 좌표를 알려주는 함수임
+        func fillCoordinate(first:Int, second:Int, number: Int) -> (Int, Int) {
+            var cFirst = first + 1
+            var cSecond = second - 1
+            
+            if cFirst > row - 1 && cSecond < 0{
+                cFirst = cFirst - 2
+                cSecond = cSecond + 1
+                resultArray[cFirst][cSecond] = number
+            } else if cFirst > row - 1 {
+                cFirst = cFirst - row
+                resultArray[cFirst][cSecond] = number
+            } else if cFirst < 0 {
+                cFirst = cFirst + row
+                resultArray[cFirst][cSecond] = number
+            } else if cSecond > row - 1 {
+                cSecond = cSecond - row
+                resultArray[cFirst][cSecond] = number
+            } else if cSecond < 0 {
+                cSecond = cSecond + row
+                resultArray[cFirst][cSecond] = number
+            } else if resultArray[cFirst][cSecond] != 0{
+                cFirst = cFirst - 2
+                cSecond = cSecond + 1
+                resultArray[cFirst][cSecond] = number
+            } else {
+                resultArray[cFirst][cSecond] = number
+            }
+            
+            return (cFirst, cSecond)
+        }
+        // resultArray 갱신도 해야 함
+        var tuple = (row - 1, row - 1 - (row - 1)/2)
+        
+        for index in 2...end {
+            tuple = fillCoordinate(first: tuple.0, second: tuple.1, number: index)
+        }
         
         return resultArray
     }

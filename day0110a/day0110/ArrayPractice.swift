@@ -46,14 +46,12 @@ struct ArrayPractice {
     
     func fillArray (lines: Int) -> Array<Array<Int>> {
         var resultArray = Array<Array<Int>>()
-        var count = 1
         for outIndex in 1...lines {
             var tempArray = Array<Int>()
             let start = outIndex * lines - lines + 1
-            for xLoop in start..<start + count {
+            for xLoop in start..<start + outIndex {
                 tempArray.append(xLoop)
             }
-            count = count + 1
             resultArray.append(tempArray)
         }
         return resultArray
@@ -64,7 +62,6 @@ struct ArrayPractice {
         
         for outIndex in 0...lines - 1 {
             var tempArray = Array<Bool>()
-            
             for index in 0...abs(outIndex - lines) - 1 {
                 
                 if (index == 0){
@@ -80,4 +77,8 @@ struct ArrayPractice {
         }
         return resultArray
     }
+    
+//    func makeMagicSquare(row: Int) -> Array<Array<Int>>.Element {
+//        <#function body#>
+//    }
 }

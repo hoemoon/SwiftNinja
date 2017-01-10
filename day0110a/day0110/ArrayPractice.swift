@@ -12,7 +12,7 @@ struct ArrayPractice {
     func printArray(array: Array<Array<Int>>) {
         for innerArray in array {
             for item in innerArray {
-                print(item, terminator:"")
+                print(item, terminator:" ")
             }
             print()
         }
@@ -25,6 +25,22 @@ struct ArrayPractice {
             for xLoop in 1...lines {
                 tempArray.append(xLoop)
             }
+            resultArray.append(tempArray)
+        }
+        return resultArray
+    }
+    
+    func fillArray (lines: Int) -> Array<Array<Int>> {
+        var resultArray = Array<Array<Int>>()
+        var count = 1
+        for outIndex in 1...lines {
+            var tempArray = Array<Int>()
+            let start = outIndex * lines - lines + 1
+            for xLoop in start..<start + count {
+                tempArray.append(xLoop)
+            }
+            count = count + 1
+
             resultArray.append(tempArray)
         }
         return resultArray

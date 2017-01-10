@@ -8,7 +8,7 @@
 
 import Foundation
 
-var interestManager:InterestManager = InterestManager()
+let interestManager:InterestManager = InterestManager()
 
 func testInterest(unitDay: Int) {
     var dayArray:[Int] = []
@@ -28,5 +28,6 @@ func testInterest(unitDay: Int) {
 
 //testInterest(unitDay: 5) 
 
-var arrayPractice:ArrayPractice = ArrayPractice()
-arrayPractice.printArray(array: arrayPractice.tempArray(lines: 5))
+let arrayPractice:ArrayPractice = ArrayPractice()
+//arrayPractice.printArray(array: arrayPractice.tempArray(lines: 5))
+arrayPractice.printArray(array: arrayPractice.fillArray(lines: 5))

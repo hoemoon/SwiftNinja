@@ -25,7 +25,6 @@ struct InterestManager {
     
     func calculateAmount(day: Int, amount: Int) -> Double {
         let calculated = Double(amount) * (getInterestRate(byDay: day) / 100)
-        // 원금 + 이자
         return Double(amount) + calculated
     }
     

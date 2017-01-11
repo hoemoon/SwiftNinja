@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBAction func actionTextField(_ sender: Any) {
         print("Hello")
     }
+    
     @IBAction func convertButton(_ sender: Any) {
         
         var measured = Measurement(value: Double(textField.text!)!, unit: UnitTemperature.celsius)
@@ -33,6 +34,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
 

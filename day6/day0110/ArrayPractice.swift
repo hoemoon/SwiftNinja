@@ -132,4 +132,12 @@ struct ArrayPractice {
         
         return resultArray
     }
+    
+    // 전 배열을 받아서 개미화 한 배열을 반환하는 함수
+    func antFuntion(inputArray:Array<Int>) -> Array<Int> {
+        var resultArray = Array<Int>()
+        
+        
+        return resultArray
+    }
 }

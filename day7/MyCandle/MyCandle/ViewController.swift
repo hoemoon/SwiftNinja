@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var toggle:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,21 +20,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var candleImageView: UIImageView!
     
     @IBAction func buttonTouched(_ sender: Any) {
-        let button = sender as! UIButton
-        var toggle = 0 // 항상 초기화 됨
+//        let button = sender as! UIButton
 
-        button.backgroundColor = UIColor.black
-        label1.text = "Hello world"
-        label1.backgroundColor = UIColor.white
-        print("button Touched")
+        candleImageView.image = UIImage(named: "candleOn.jpeg")
+
         
-//        if toggle == 0 {
-//            candleImageView.image = UIImage(named: "candleOff.jpeg")
-//            toggle = 1
-//        } else {
-//            candleImageView.image = UIImage(named: "candleOn.jpeg")!
-//            toggle = 0
-//        }
+        if toggle == 0 {
+            print(toggle)
+            candleImageView.image = UIImage(named: "candleOff.jpeg")
+            toggle = 1
+        } else {
+            candleImageView.image = UIImage(named: "candleOn.jpeg")
+            print(toggle)
+            toggle = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

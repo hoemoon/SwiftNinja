@@ -29,8 +29,9 @@ func testInterest(unitDay: Int) {
 //testInterest(unitDay: 5) 
 
 let arrayPractice:ArrayPractice = ArrayPractice()
-//arrayPractice.printArray(array: arrayPractice.tempArray(lines: 5))
-//arrayPractice.printArray(array: arrayPractice.fillArray(lines: 5))
-//arrayPractice.printArray(array: arrayPractice.setBoolArray(lines: 5), newChar: "#")
-//arrayPractice.printArray(array: arrayPractice.makeMagicSquare(row: 3))
-//arrayPractice.printArray(array: arrayPractice.makeMagicSquare(row: 5))
+
+//var game1 = BaseBallGame()
+//game1.newGame()
+//game1.readNumber()
+//game1.printNumber()
+//game1.showGameScore()

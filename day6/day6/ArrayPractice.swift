@@ -133,10 +133,38 @@ struct ArrayPractice {
         return resultArray
     }
     
-    // 전 배열을 받아서 개미화 한 배열을 반환하는 함수
-    func antFuntion(inputArray:Array<Int>) -> Array<Int> {
+    func makeAntSequence(inputArray:Array<Int>) -> Array<Int> {
         var resultArray = Array<Int>()
+        if( inputArray.count == 1) {
+            return [1, 1]
+        }
         
+        let end = inputArray.count - 2
+        var count = 1
+        
+        for outIndex in 0...end {
+            let temp = inputArray[outIndex]
+            for index in outIndex...outIndex {
+                if(temp == inputArray[index + 1]) {
+                    count += 1
+                    
+                    if (index == end) {
+                        resultArray.append(temp)
+                        resultArray.append(count)
+                    }
+                    
+                } else {
+                    resultArray.append(temp)
+                    resultArray.append(count)
+                    count = 1
+                    
+                    if (index == end) {
+                        resultArray.append(inputArray[index + 1])
+                        resultArray.append(count)
+                    }
+                }
+            }
+        }
         
         return resultArray
     }

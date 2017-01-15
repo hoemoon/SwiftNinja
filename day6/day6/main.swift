@@ -35,3 +35,10 @@ let arrayPractice:ArrayPractice = ArrayPractice()
 //game1.readNumber()
 //game1.printNumber()
 //game1.showGameScore()
+
+func testBaseBall () {
+    var game1 = PlayBaseBall()
+    print(game1.playGame())
+}
+
+testBaseBall()

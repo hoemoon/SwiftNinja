@@ -8,5 +8,11 @@
 - 먼저 wunderlist의 핵심 기능을 문서화 한다.
 - NEXT-WUNDER 가 가져야 할 기능을 문서화 한다.
 
-![GitHub Logo](4a9.jpg)
+![before login](4a9.jpg)
+![logining](4aa.jpg)
+![listView1](4ab.jpg)
+![listView2](4ac.jpg)
+![listView3](4ad.jpg)
+![view4](4ae.jpg)
+![view5](4af.jpg)
 

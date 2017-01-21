@@ -10,7 +10,7 @@
 - [x] Autolayout & proect creation 15'
 - [x] Width, height, leading, trailing constraints 21'
 - [x] UIPickerView 29'
-- [ ] UIScrollView 29;
+- [x] UIScrollView 29;
 - [ ] UIStackView 40'
 - [ ] Changing Screens with Segues 29'
 - [ ] Retro Calculator App, Custom fonts 3'

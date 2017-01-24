@@ -13,12 +13,21 @@ class ViewController: UIViewController {
         case d, h, s, c
     }
     var secondArray:[String] = [String]()
-    
 
     @IBAction func randomButton(_ sender: Any) {
         let cardViewController: CardViewController = storyboard?.instantiateViewController(withIdentifier: "cardViewBoard") as! CardViewController
         let randomFace = CardFace(rawValue: arc4random_uniform(4))
+        cardViewController.rTuple.key = String(describing: randomFace!)
+        cardViewController.rTuple.val = secondArray[Int(arc4random_uniform(13))]
         
+        if let navigation = navigationController {
+            navigation.pushViewController(cardViewController, animated: true)
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         for index in 2...14 {
             if index == 11 {
                 secondArray.append("A")
@@ -32,26 +41,11 @@ class ViewController: UIViewController {
                 secondArray.append(String(index))
             }
         }
-        
-        cardViewController.rTuple.key = String(describing: randomFace!)
-        cardViewController.rTuple.val = secondArray[Int(arc4random_uniform(4))]
-        
-//        print(String(describing: randomFace!), secondArray[Int(arc4random_uniform(4))])
-        
-        if let navigation = navigationController {
-            navigation.pushViewController(cardViewController, animated: true)
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 }
 

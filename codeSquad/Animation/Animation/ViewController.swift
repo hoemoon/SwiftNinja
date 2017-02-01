@@ -47,13 +47,16 @@ class ViewController: UIViewController {
     }
     
     func downLoad() {
+        
         let cacheDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         
         let preUrl = "http://125.209.194.123/demo/"
         for item in tempArray {
             let url = preUrl + String(describing: item["image"]!)
             let localLocation = URL(string: cacheDir)?.appendingPathComponent(item["image"] as! String).path
-            URLSession(configuration: URLSessionConfiguration.default).downloadTask(with: URL(string: url)!, completionHandler: { (tempLocalLocation, response, error) in
+            
+            URLSession(configuration: URLSessionConfiguration.default).downloadTask(with: URL(string: url)!, completionHandler: {
+                (tempLocalLocation, response, error) in
                 print("here")
                 print(tempLocalLocation!)
                 
@@ -62,28 +65,20 @@ class ViewController: UIViewController {
                 } catch (let writeError) {
                     print(writeError)
                 }
-                
             }).resume()
         }
-        
-        
     }
     
     func getJSON() {
         URLSession(configuration: URLSessionConfiguration.default).dataTask(with: URL(string: "http://125.209.194.123/json.php")!) {
             (data, response, error) in
             
-            
             let json = try? JSONSerialization.jsonObject(with: data!, options: [])
             
             if let array = json as? [[String: String]] {
                 self.tempArray = array
             }
-            
         }.resume()
-        
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
-
     }
     
     func moveView() {

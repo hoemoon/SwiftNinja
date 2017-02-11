@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "socialNumber/ViewController.swift"
+            timestampString = "507026128.187989"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "convertToNumberArray(input:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "socialNumber.ViewController.convertToNumberArray (input : Swift.String) -&gt; Swift.Array&lt;Swift.Int&gt;"
+                  moduleName = "socialNumber"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoemoon/playground/swiftNinja/socialNumber/socialNumber/ViewController.swift"
+                  timestampString = "507023444.387033"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "337">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "socialNumber.ViewController.convertToNumberArray (input : Swift.String) -&gt; Swift.Array&lt;Swift.Int&gt;"
+                  moduleName = "socialNumber"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hoemoon/playground/swiftNinja/socialNumber/socialNumber/ViewController.swift"
+                  timestampString = "507023444.389725"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "428">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

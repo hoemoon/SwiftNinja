@@ -56,17 +56,16 @@ struct SolitaireDeck {
         }
     }
 
-        mutating func makeCard() {
-            for outer in 1...7 {
-                var tempArray = [String]()
-                for _ in 1...outer {
-                    let rNumber: Int = Int(arc4random_uniform(UInt32(self.array52.count)))
-                    tempArray.append(self.array52[rNumber])
-                    self.array52.remove(at: rNumber)
-                }
-                resultArray.append(tempArray)
+    mutating func makeCard() {
+        for outer in 1...7 {
+            var tempArray = [String]()
+            for _ in 1...outer {
+                let rNumber: Int = Int(arc4random_uniform(UInt32(self.array52.count)))
+                tempArray.append(self.array52[rNumber])
+                self.array52.remove(at: rNumber)
             }
-            resultArray.append(self.array52)
+            resultArray.append(tempArray)
         }
-
+        resultArray.append(self.array52)
+    }
 }

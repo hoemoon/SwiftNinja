@@ -1,0 +1,2 @@
+print(readLine()!)
+print(readLine()!)

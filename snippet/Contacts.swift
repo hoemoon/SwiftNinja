@@ -1,13 +1,13 @@
 struct Contacts {
-    var addressDict : [Int:[String: String]] = [Int:[String: String]]()
+    var addressDict: [Int:[String: String]] = [Int: [String: String]]()
     var index = 0
-    
+
     mutating func getIndex() -> Int {
         self.index += 1
         return self.index
     }
-    
-    mutating func insertContact(name:String, address:String) {
+
+    mutating func insertContact(name: String, address: String) {
         var emptyDict: [String: String] = [:]
         emptyDict[name] = address
         addressDict[getIndex()] = emptyDict

@@ -128,4 +128,3 @@ if let name = myName, let friend = yourName {
 // 암시적 추출 옵셔널로 지정된 타입은 일반 값처럼 사용할 수 있으나,
 // 여전히 옵셔널이기 때문에 nil도 할당할 수 있다. 바인딩도 사용할 수 있다.
 var myName: String! = "hoemoon"
-

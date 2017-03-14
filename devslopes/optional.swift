@@ -57,4 +57,3 @@ class Dog {
         self.species = someSpecies
     }
 }
-

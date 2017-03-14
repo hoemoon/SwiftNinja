@@ -1,2 +1,0 @@
-print(readLine()!)
-print(readLine()!)

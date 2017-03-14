@@ -1,4 +1,4 @@
-# swiftNinja
+# SwiftNinja
 
 - codeSquad
 - devslopes

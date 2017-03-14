@@ -19,10 +19,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var successBtn: UIButton!
     @IBOutlet weak var whiteView: UIView!
     @IBOutlet weak var buyBtn: UIButton!
-    
-    
+
     let states = ["Alaska", "Arkansas", "Alabama", "California", "Manie", "New York"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         statePicker.dataSource = self
@@ -46,15 +45,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return states.count
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return states[row]
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         statePickerBtn.setTitle(states[row], for: UIControlState.normal)
         statePicker.isHidden = true
@@ -73,7 +72,5 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         whiteView.isHidden = true
         successBtn.isHidden = true
     }
-    
-    
-}
 
+}

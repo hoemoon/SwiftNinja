@@ -10,6 +10,8 @@
 		6F68AB421E77E213003A4FE2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F68AB411E77E213003A4FE2 /* main.swift */; };
 		6F68AB491E77E23C003A4FE2 /* CXPen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F68AB481E77E23C003A4FE2 /* CXPen.swift */; };
 		6F68AB4B1E77E24D003A4FE2 /* PenHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F68AB4A1E77E24D003A4FE2 /* PenHolder.swift */; };
+		6FC766231E78DEAF00FB26A7 /* CXMonamiPen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC766221E78DEAF00FB26A7 /* CXMonamiPen.swift */; };
+		6FC766271E78EB0600FB26A7 /* CXSharpPen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC766261E78EB0600FB26A7 /* CXSharpPen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,8 @@
 		6F68AB411E77E213003A4FE2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		6F68AB481E77E23C003A4FE2 /* CXPen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXPen.swift; sourceTree = "<group>"; };
 		6F68AB4A1E77E24D003A4FE2 /* PenHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PenHolder.swift; sourceTree = "<group>"; };
+		6FC766221E78DEAF00FB26A7 /* CXMonamiPen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXMonamiPen.swift; sourceTree = "<group>"; };
+		6FC766261E78EB0600FB26A7 /* CXSharpPen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXSharpPen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				6F68AB411E77E213003A4FE2 /* main.swift */,
 				6F68AB481E77E23C003A4FE2 /* CXPen.swift */,
 				6F68AB4A1E77E24D003A4FE2 /* PenHolder.swift */,
+				6FC766221E78DEAF00FB26A7 /* CXMonamiPen.swift */,
+				6FC766261E78EB0600FB26A7 /* CXSharpPen.swift */,
 			);
 			path = PenPineAppleApplePen;
 			sourceTree = "<group>";
@@ -129,7 +135,9 @@
 			files = (
 				6F68AB4B1E77E24D003A4FE2 /* PenHolder.swift in Sources */,
 				6F68AB491E77E23C003A4FE2 /* CXPen.swift in Sources */,
+				6FC766271E78EB0600FB26A7 /* CXSharpPen.swift in Sources */,
 				6F68AB421E77E213003A4FE2 /* main.swift in Sources */,
+				6FC766231E78DEAF00FB26A7 /* CXMonamiPen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +269,7 @@
 				6F68AB471E77E213003A4FE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

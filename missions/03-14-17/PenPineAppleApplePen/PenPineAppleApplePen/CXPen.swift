@@ -9,9 +9,9 @@
 import Foundation
 
 class CXPen {
-    private var brandName: String
-    private var colorName: String
-    private var usagePercent: Int
+    internal var brandName: String
+    internal var colorName: String
+    internal var usagePercent: Int
     
     init(withBrand: String) {
         brandName = withBrand
@@ -40,6 +40,6 @@ class CXPen {
     }
     // display
     func printDescription() {
-        print("Brand: \(self.brandName), Color: \(self.colorName), Usage: \(self.usagePercent)")
+        print("Brand: \(self.brandName), Color: \(self.colorName), Usage: \(self.usagePercent)", terminator: ", ")
     }
 }

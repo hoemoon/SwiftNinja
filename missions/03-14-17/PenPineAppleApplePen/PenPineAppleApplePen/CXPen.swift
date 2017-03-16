@@ -43,3 +43,9 @@ class CXPen {
         print("Brand: \(self.brandName), Color: \(self.colorName), Usage: \(self.usagePercent)", terminator: ", ")
     }
 }
+
+extension CXPen: CustomStringConvertible {
+    var description: String {
+        return "Brand: \(self.brandName), Color: \(self.colorName), Usage: \(self.usagePercent)"
+    }
+}

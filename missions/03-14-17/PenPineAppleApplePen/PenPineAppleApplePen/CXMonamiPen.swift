@@ -10,7 +10,7 @@ import Foundation
 
 class CXMonamiPen: CXPen {
     
-    fileprivate var modelName = String()
+    private var modelName = String()
     init(withModel: String) {
         modelName = withModel
         super.init(withBrand: "Monami")

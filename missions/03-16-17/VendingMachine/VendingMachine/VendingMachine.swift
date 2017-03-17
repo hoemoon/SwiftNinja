@@ -20,7 +20,7 @@ class VendingMachine {
     }
     
     func add(beverage: Beverage) {
-        stocks.append(beverage)
+        stocksDict[beverage.getName()] = beverage.getPrice()
     }
     
     func getNamesOfStocks() -> [String] {

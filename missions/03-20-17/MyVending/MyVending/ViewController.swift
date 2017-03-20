@@ -15,56 +15,41 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let coke = Soda(maker: "cocacola inc.", price: 1000, name: "cocacola", expireDate: Date(), caffein: false, acidLevel: 50)
-//        let cidar = Soda(maker: "lotte", price: 1000, name: "cidar", expireDate: Date(), caffein: false, acidLevel: 70)
-//        vendingMachine.add(beverage: coke)
-//        vendingMachine.add(beverage: coke)
-//        vendingMachine.add(beverage: cidar)
-//        
-//        vendingMachine.add(beverage: coke)
-//        vendingMachine.printStocks()
-        var tempDict = ["cidar": 1, "cocacola": 3]
-        vendingMachine.setStock(stored: tempDict)
-        print(vendingMachine.getStockDict())
+//        print(vendingMachine.getStockDict())
+        drawView()
 
     }
     
-//        stocks = vendingMachine.getAllStockDict() ?? [String:Int]()
-//        drawView()
-//    }
-//    
-//    override func viewWillAppear(_ animated: Bool) {
-//        print("viewWillAppear", stocks)
-//        drawView()
-//    }
-//        
-//    func drawView() {
-////         stocks = vendingMachine.getAllStocks() ?? [String:Int]()
-//        
-//        if let coke = stocks["cocacola"] {
-//            cokeCount.text = String(describing: coke)
-//        }
-//        if let cidar = stocks["cidar"] {
-//            cidarCount.text = String(describing: cidar)
-//        }
-//    }
-//    
-//    func getStocks() -> [String: Int]{
-//        return stocks
-//    }
-//    
-//    func setStocks(stocks: [String: Int]) {
-//        self.stocks = stocks
-//    }
-//    
+    func drawView() {
+        let stocks = vendingMachine.getStockDict() ?? [String:Int]()
+        if let coke = stocks["cocacola"] {
+            cokeCount.text = String(describing: coke)
+        }
+        if let cidar = stocks["cidar"] {
+            cidarCount.text = String(describing: cidar)
+        }
+    }
+    
+    func getStocks() -> [String: Int]{
+        return vendingMachine.getStockDict()
+    }
+    
+    func setStocks(stocks: [String: Int]) {
+        vendingMachine.setStock(stored: stocks)
+    }
+    
     @IBAction func addCoke(_ sender: Any) {
         let coke = Soda(maker: "cocacola inc.", price: 1000, name: "cocacola", expireDate: Date(), caffein: false, acidLevel: 50)
         vendingMachine.add(beverage: coke)
+        print(vendingMachine.getStockDict())
+        drawView()
     }
 
     @IBAction func addCidar(_ sender: Any) {
         let cidar = Soda(maker: "lotte", price: 1000, name: "cidar", expireDate: Date(), caffein: false, acidLevel: 40)
         vendingMachine.add(beverage: cidar)
+        drawView()
+
     }
 
     override func didReceiveMemoryWarning() {

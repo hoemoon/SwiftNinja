@@ -15,13 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        let vc = window?.rootViewController as! ViewController
-//        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
-//            if stocks.count != 0 {
-//                print("application", stocks)
-//                vc.setStocks(stocks: stocks)
-//            }
-//        }
+        let vc = window?.rootViewController as! ViewController
+        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
+            if stocks.count != 0 {
+                print("application", stocks)
+                vc.setStocks(stocks: stocks)
+            }
+        }
         return true
     }
 
@@ -34,22 +34,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//        let vc = window?.rootViewController as! ViewController
-//        let stocks = vc.getStocks()
-//        UserDefaults.standard.set(stocks, forKey: "stocks")
+        let vc = window?.rootViewController as! ViewController
+        let stocks = vc.getStocks()
+        UserDefaults.standard.set(stocks, forKey: "stocks")
         print("applicationDidEnterBackground")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-//        let vc = window?.rootViewController as! ViewController
-//        
-//        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
-//            if stocks.count != 0 {
-//                vc.setStocks(stocks: stocks)
-//                vc.drawView()
-//            }
-//        }
+        let vc = window?.rootViewController as! ViewController
+        
+        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
+            if stocks.count != 0 {
+                vc.setStocks(stocks: stocks)
+            }
+        }
         print("applicationWillEnterForeground")
 
     }

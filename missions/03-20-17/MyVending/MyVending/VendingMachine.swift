@@ -25,6 +25,7 @@ class VendingMachine {
             temp.append(beverage)
             stocks[beverage.getName()] = temp
         }
+        NotificationCenter.default.post(name: Notification.Name("added"), object: nil)
     }
     
     func getStockDict() -> [String:Int] {
@@ -51,6 +52,4 @@ class VendingMachine {
     func printStocks() {
         print("stocks", stocks)
     }
-    
-    
 }

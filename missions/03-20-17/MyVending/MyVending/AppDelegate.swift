@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
         let vc = window?.rootViewController as! ViewController
         let stocks = vc.getStocks()
         UserDefaults.standard.set(stocks, forKey: "stocks")
@@ -43,37 +44,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         let vc = window?.rootViewController as! ViewController
-        
         if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
             if stocks.count != 0 {
                 vc.setStocks(stocks: stocks)
             }
         }
         print("applicationWillEnterForeground")
-
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//        let vc = window?.rootViewController as! ViewController
-//
-//        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
-//            if stocks.count != 0 {
-//                vc.setStocks(stocks: stocks)
-//                vc.drawView()
-//            }
-//        }
         print("applicationDidBecomeActive")
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         print("applicationWillTerminatce")
-//        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
-//            if stocks.count != 0 {
-//                print("terminate", stocks)
-//            }
-//        }
 
     }
 }

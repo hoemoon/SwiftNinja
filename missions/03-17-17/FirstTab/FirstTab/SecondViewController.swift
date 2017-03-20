@@ -31,14 +31,14 @@ class SecondViewController: UIViewController {
             let diff:Int = Int(abs(startLocation - currentY))
             if diff % 5 == 0 {
                 initAlpha -= 0.05
-                self.view.backgroundColor = UIColor.yellow.withAlphaComponent(CGFloat(initAlpha))
             }
+            self.view.backgroundColor = UIColor.yellow.withAlphaComponent(CGFloat(initAlpha))
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.backgroundColor = UIColor.yellow.withAlphaComponent(CGFloat(1))
         initAlpha = 1
+        self.view.backgroundColor = UIColor.yellow.withAlphaComponent(CGFloat(initAlpha))
     }
 
     override func didReceiveMemoryWarning() {

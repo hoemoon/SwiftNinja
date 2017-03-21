@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage :CustomStringConvertible {
+class Beverage :CustomStringConvertible, Equatable {
     private let maker: String
     private let price: Int
     private let name: String
@@ -35,6 +35,11 @@ class Beverage :CustomStringConvertible {
     
     var description: String {
         return self.name
+    }
+    
+    static func ==(lhs: Beverage, rhs: Beverage) -> Bool {
+        // return lhs.getName().compare(rhs.getName()) == ComparisonResult.orderedSame && lhs.expireDate == rhs.expireDate
+        return lhs.getName() == rhs.getName() && lhs.expireDate == rhs.expireDate
     }
 }
 

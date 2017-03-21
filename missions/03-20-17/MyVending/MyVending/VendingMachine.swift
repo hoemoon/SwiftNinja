@@ -25,7 +25,8 @@ class VendingMachine {
             temp.append(beverage)
             stocks[beverage.getName()] = temp
         }
-        NotificationCenter.default.post(name: Notification.Name("added"), object: nil)
+//        NotificationCenter.default.post(name: Notification.Name("added"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("added"), object: nil, userInfo: getStockDict())
     }
     
     func getStockDict() -> [String:Int] {

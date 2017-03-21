@@ -16,13 +16,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // NotificationCenter.default.addObserver(self, selector: #selector(YourClassName.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
-        drawView()
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.drawView), name: NSNotification.Name("added"), object: nil)
+        let notification:Notification = Notification(name: Notification.Name("any"), object: nil, userInfo: vendingMachine.getStockDict())
+        drawView(notification: notification)
+        
+        let coke = Soda(name: "cokek")
+        let coke2 = Soda(name: "coke")
+        print(coke == coke2)
     }
     
-    func drawView() {
-        let stocks = vendingMachine.getStockDict() 
+    func drawView(notification:Notification) {
+        let stocks = notification.userInfo!
         if let coke = stocks["cocacola"] {
             cokeCount.text = String(describing: coke)
         }
@@ -42,7 +46,6 @@ class ViewController: UIViewController {
     @IBAction func addCoke(_ sender: Any) {
         let coke = Soda(maker: "cocacola inc.", price: 1000, name: "cocacola", expireDate: Date(), caffein: false, acidLevel: 50)
         vendingMachine.add(beverage: coke)
-        
     }
 
     @IBAction func addCidar(_ sender: Any) {

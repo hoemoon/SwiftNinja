@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // 처음켜면 실행 #1
         let vc = window?.rootViewController as! ViewController
         if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
             if stocks.count != 0 {
@@ -54,6 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        // 들락날락 할때마다 실행된다.
+        // 처음켜면 실행 #2
         print("applicationDidBecomeActive")
     }
 

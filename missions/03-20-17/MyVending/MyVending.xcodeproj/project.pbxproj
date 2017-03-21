@@ -426,6 +426,7 @@
 				6F40DA7A1E7F6938004D3D45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6F40DA7B1E7F6938004D3D45 /* Build configuration list for PBXNativeTarget "MyVendingTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +435,7 @@
 				6F40DA7D1E7F6938004D3D45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

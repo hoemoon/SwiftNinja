@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Beverage :CustomStringConvertible, Equatable {
+class Beverage :NSObject, NSCoding {
     private let maker: String
     private let price: Int
     private let name: String
@@ -21,7 +21,7 @@ class Beverage :CustomStringConvertible, Equatable {
         self.expireDate = expireDate
     }
     
-    convenience init() {
+    convenience override init() {
         self.init(maker: "unknown", price: 0, name: "unknown", expireDate: Date(timeInterval: 30000, since: Date()))
     }
     
@@ -33,13 +33,27 @@ class Beverage :CustomStringConvertible, Equatable {
         return self.price
     }
     
-    var description: String {
+    override var description: String {
         return self.name
     }
     
     static func ==(lhs: Beverage, rhs: Beverage) -> Bool {
         // return lhs.getName().compare(rhs.getName()) == ComparisonResult.orderedSame && lhs.expireDate == rhs.expireDate
         return lhs.getName() == rhs.getName() && lhs.expireDate == rhs.expireDate
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(maker, forKey: "maker")
+        aCoder.encode(price, forKey: "price")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(expireDate, forKey: "expireDate")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        maker = aDecoder.decodeObject(forKey: "maker") as! String
+        price = aDecoder.decodeInteger(forKey: "price")
+        name = aDecoder.decodeObject(forKey: "name") as! String
+        expireDate = aDecoder.decodeObject(forKey: "expireDate") as! Date
     }
 }
 
@@ -55,6 +69,18 @@ class CoolBeverage: Beverage {
     convenience init() {
         self.init(maker: "unknown", price: 0, name: "unknown", expireDate: Date(timeInterval: 30000, since: Date()), caffein: Bool(), acidLevel: Int())
     }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(caffein, forKey: "caffein")
+        aCoder.encode(acidLevel, forKey: "acidLevel")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        caffein = aDecoder.decodeBool(forKey: "caffein")
+        acidLevel = aDecoder.decodeInteger(forKey: "acidLevel")
+        super.init(coder: aDecoder)
+    }
 }
 
 class HotBeverage: Beverage {
@@ -67,6 +93,17 @@ class HotBeverage: Beverage {
     
     convenience init() {
         self.init(maker: "unknown", price: 0, name: "unknown", expireDate: Date(timeInterval: 30000, since: Date()), temperature: Int())
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(temperature, forKey: "temperature")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        temperature = aDecoder.decodeInteger(forKey: "temperature")
+        super.init(coder: aDecoder)
+        
     }
 }
 
@@ -83,6 +120,14 @@ class Soda: CoolBeverage {
     }
     convenience init(name: String) {
         self.init(maker: "soda inc.", price: 1000, name: name, expireDate: Date(timeInterval: 30000, since: Date()), caffein: true, acidLevel: 100 )
+    }
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(taste, forKey: "taste")
+    }
+    required init?(coder aDecoder: NSCoder) {
+        taste = aDecoder.decodeObject(forKey: "taste") as! String
+        super.init(coder: aDecoder)
     }
 }
 

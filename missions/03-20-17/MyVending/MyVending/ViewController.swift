@@ -43,6 +43,14 @@ class ViewController: UIViewController {
         vendingMachine.setStock(stored: stocks)
     }
     
+    func setUnarchive(unarchived: [String:[Beverage]]) {
+        vendingMachine.setUnarchvied(unarchived: unarchived)
+    }
+    
+    func getStocksForArchive() -> [String:[Beverage]] {
+        return vendingMachine.getStocksForArchive()
+    }
+    
     @IBAction func addCoke(_ sender: Any) {
         let coke = Soda(maker: "cocacola inc.", price: 1000, name: "cocacola", expireDate: Date(), caffein: false, acidLevel: 50)
         vendingMachine.add(beverage: coke)

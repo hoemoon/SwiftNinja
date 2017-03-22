@@ -8,10 +8,10 @@
 
 import Foundation
 
-class VendingMachine {
+class VendingMachine :NSObject, NSCoding {
     private var stocks: [String:[Beverage]]
     
-    init() {
+    override init() {
         stocks = [String:[Beverage]]()
     }
     
@@ -50,7 +50,24 @@ class VendingMachine {
         stocks = temp
     }
     
+    func setUnarchvied(unarchived: [String:[Beverage]]) {
+        stocks = unarchived
+    }
+    
+    func getStocksForArchive() -> [String:[Beverage]] {
+        return stocks
+    }
+    
     func printStocks() {
         print("stocks", stocks)
     }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(stocks, forKey: "stocks")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        stocks = aDecoder.decodeObject(forKey: "stocks") as! [String:[Beverage]]
+    }
 }
+

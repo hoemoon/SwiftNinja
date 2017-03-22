@@ -16,13 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // 처음켜면 실행 #1
+//        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
+//            if stocks.count != 0 {
+//                print("application", stocks)
+//                vc.setStocks(stocks: stocks)
+//            }
+//        }
+        
         let vc = window?.rootViewController as! ViewController
-        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
-            if stocks.count != 0 {
-                print("application", stocks)
-                vc.setStocks(stocks: stocks)
+        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? Data {
+            print(stocks)
+            if let unarch = NSKeyedUnarchiver.unarchiveObject(with: stocks) as? [String:[Beverage]] {
+                print(unarch)
+                vc.setUnarchive(unarchived: unarch)
+            } else {
+                vc.cokeCount.text = "0"
+                vc.cidarCount.text = "0"
             }
+            
         }
+        
         return true
     }
 
@@ -37,20 +50,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         let vc = window?.rootViewController as! ViewController
-        let stocks = vc.getStocks()
-        UserDefaults.standard.set(stocks, forKey: "stocks")
+        let stocks = vc.getStocksForArchive()
+        // UserDefaults.standard.set(stocks, forKey: "stocks")
         print("applicationDidEnterBackground")
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: stocks) // [String:[Beavrage]]
+        UserDefaults.standard.set(data, forKey: "stocks")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        print("applicationWillEnterForeground")
         let vc = window?.rootViewController as! ViewController
-        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? [String:Int] {
-            if stocks.count != 0 {
-                vc.setStocks(stocks: stocks)
+        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? Data {
+            if let unarch = NSKeyedUnarchiver.unarchiveObject(with: stocks) as? [String:[Beverage]] {
+                vc.setUnarchive(unarchived: unarch)
             }
         }
-        print("applicationWillEnterForeground")
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

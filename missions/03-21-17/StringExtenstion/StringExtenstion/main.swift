@@ -9,6 +9,7 @@
 import Foundation
 
 let targetStr = "http://www.osxdev.org/forum/index.php?threads/swift-2-0에서-try-catch로-fatal-error-잡을-수-있나요.382/"
+
 extension String {
     var hangul: [String] {
         return filterHangulWord(str: self)
@@ -24,7 +25,6 @@ extension String {
             }
             return false
         }
-        
         func isNotNumerics(str: String) -> Bool {
             for v in str.unicodeScalars {
                 if CharacterSet.decimalDigits.contains(v) == true {
@@ -33,7 +33,6 @@ extension String {
             }
             return true
         }
-        
         func isNotAlphabet(str: String) -> Bool {
             let uni = str.unicodeScalars
             let number = uni[uni.startIndex].value
@@ -53,10 +52,8 @@ extension String {
         for item in result {
             resultArray.append(item.joined(separator: ""))
         }
-        
         return resultArray
     }
 }
 
 print(targetStr.hangul)
-// print(String.filterHangulWord(str: targetStr))

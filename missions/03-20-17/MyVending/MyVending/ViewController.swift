@@ -51,6 +51,14 @@ class ViewController: UIViewController {
         return vendingMachine.getStocksForArchive()
     }
     
+    func getMachine() -> VendingMachine {
+        return vendingMachine
+    }
+    
+    func setMachine(machine: VendingMachine) {
+        vendingMachine = machine
+    }
+    
     @IBAction func addCoke(_ sender: Any) {
         let coke = Soda(maker: "cocacola inc.", price: 1000, name: "cocacola", expireDate: Date(), caffein: false, acidLevel: 50)
         vendingMachine.add(beverage: coke)

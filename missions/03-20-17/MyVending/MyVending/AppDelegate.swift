@@ -24,16 +24,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         
         let vc = window?.rootViewController as! ViewController
-        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? Data {
-            print(stocks)
-            if let unarch = NSKeyedUnarchiver.unarchiveObject(with: stocks) as? [String:[Beverage]] {
-                print(unarch)
-                vc.setUnarchive(unarchived: unarch)
+//        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? Data {
+//            print(stocks)
+//            if let unarch = NSKeyedUnarchiver.unarchiveObject(with: stocks) as? [String:[Beverage]] {
+//                print(unarch)
+//                vc.setUnarchive(unarchived: unarch)
+//            } else {
+//                vc.cokeCount.text = "0"
+//                vc.cidarCount.text = "0"
+//            }
+//            
+//        }
+        // Unarchive machine
+        if let machine = UserDefaults.standard.object(forKey: "machine") as? Data {
+            if let unarch = NSKeyedUnarchiver.unarchiveObject(with: machine) as? VendingMachine {
+                vc.setMachine(machine: unarch)
             } else {
                 vc.cokeCount.text = "0"
                 vc.cidarCount.text = "0"
             }
-            
         }
         
         return true
@@ -56,6 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let data = NSKeyedArchiver.archivedData(withRootObject: stocks) // [String:[Beavrage]]
         UserDefaults.standard.set(data, forKey: "stocks")
+        
+        // archive vendingmachine
+        let machine = vc.getMachine()
+        let dateOfMachine = NSKeyedArchiver.archivedData(withRootObject: machine)
+        UserDefaults.standard.set(dateOfMachine, forKey: "machine")
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -63,11 +78,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("applicationWillEnterForeground")
         let vc = window?.rootViewController as! ViewController
-        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? Data {
-            if let unarch = NSKeyedUnarchiver.unarchiveObject(with: stocks) as? [String:[Beverage]] {
-                vc.setUnarchive(unarchived: unarch)
+//        if let stocks = UserDefaults.standard.object(forKey: "stocks") as? Data {
+//            if let unarch = NSKeyedUnarchiver.unarchiveObject(with: stocks) as? [String:[Beverage]] {
+//                vc.setUnarchive(unarchived: unarch)
+//            }
+//        }
+        // Unarchive machine
+        if let machine = UserDefaults.standard.object(forKey: "machine") as? Data {
+            if let unarch = NSKeyedUnarchiver.unarchiveObject(with: machine) as? VendingMachine {
+                vc.setMachine(machine: unarch)
             }
         }
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

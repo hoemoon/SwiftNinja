@@ -35,7 +35,7 @@ class MyView: UIView {
             myBezier.move(to: CGPoint(x: randomX(), y: randomY()))
             myBezier.addLine(to: CGPoint(x: randomX(), y: randomY()))
             
-            UIColor.black.setStroke()
+            randomUIColor().setStroke()
             myBezier.stroke()
         }
     }
@@ -43,20 +43,23 @@ class MyView: UIView {
     func drawArc() {
         for _ in 1...10 {
             let centerPoint = CGPoint(x: randomX(), y: randomY())
-            
+            let randomColor = randomUIColor()
             let ciclePath: UIBezierPath = UIBezierPath(arcCenter: centerPoint, radius: CGFloat(randomX() / 2), startAngle: CGFloat((random360()).rad), endAngle: CGFloat((random360()).rad), clockwise: true)
             ciclePath.addLine(to: centerPoint)
             ciclePath.close()
             ciclePath.stroke()
             
-            let randomColor = randomUIColor().cgColor
-            let layer = CAShapeLayer()
-            layer.path = ciclePath.cgPath
-            layer.fillColor = randomColor
-            layer.backgroundColor = nil
-            layer.strokeColor = randomColor
+            UIColor.clear.setStroke()
+            randomColor.setFill()
+            ciclePath.fill()
             
-            self.layer.addSublayer(layer)
+//            let layer = CAShapeLayer()
+//            layer.path = ciclePath.cgPath
+//            layer.fillColor = randomColor
+//            layer.backgroundColor = nil
+//            layer.strokeColor = randomColor
+//            
+//            self.layer.addSublayer(layer)
         }
     }
     

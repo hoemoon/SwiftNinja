@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     
     func responseToPanGesture(rec: UIPanGestureRecognizer) {
         splitViewY.constant = rec.location(in: self.view).y
-        print(currentY)
     }
 
     override func didReceiveMemoryWarning() {

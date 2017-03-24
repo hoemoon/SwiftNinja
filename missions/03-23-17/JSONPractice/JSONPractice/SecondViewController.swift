@@ -13,7 +13,6 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
     }
     
     func randomJson() {
@@ -22,7 +21,9 @@ class SecondViewController: UIViewController {
         let json = try! JSONSerialization.jsonObject(with: jsonData!, options: [])
         if let array = json as? [[String:Any]] {
             let randomElement = array[Int(arc4random_uniform(4))]
+            
             let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detail") as! PhotoDetailViewController
+            
             if let title = randomElement["title"] {
                 detailVC.titleLabeltext = title as! String
             }
@@ -30,7 +31,6 @@ class SecondViewController: UIViewController {
                 detailVC.contentLabel = content as! String
             }
             if let comments = randomElement["comments"] as? [[String:Any]] {
-                print(comments)
                 detailVC.commentsLabel = String(comments.count)
             }
             if let image = randomElement["image"] as? String {
@@ -48,7 +48,5 @@ class SecondViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

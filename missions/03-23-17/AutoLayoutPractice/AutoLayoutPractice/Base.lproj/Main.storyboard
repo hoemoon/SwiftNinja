@@ -23,21 +23,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7y0-8Y-6RX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7y0-8Y-6RX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="321.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkI-ED-5b5">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wkI-ED-5b5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6s" translatesAutoresizingMaskIntoConstraints="NO" id="kjg-3S-UQl">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="iphone6s" translatesAutoresizingMaskIntoConstraints="NO" id="kjg-3S-UQl">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="322"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watch" translatesAutoresizingMaskIntoConstraints="NO" id="P1j-K4-nr2">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="watch" translatesAutoresizingMaskIntoConstraints="NO" id="P1j-K4-nr2">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="322"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="PTN-Mg-H0k"/>
                                             <constraint firstItem="kjg-3S-UQl" firstAttribute="width" secondItem="P1j-K4-nr2" secondAttribute="width" priority="250" id="owi-Io-vkb"/>
                                         </constraints>
                                     </stackView>
@@ -48,18 +49,17 @@
                                     <constraint firstAttribute="bottom" secondItem="wkI-ED-5b5" secondAttribute="bottom" id="4Mi-9Z-M7K"/>
                                     <constraint firstItem="wkI-ED-5b5" firstAttribute="top" secondItem="7y0-8Y-6RX" secondAttribute="top" id="hAA-Fc-KUJ"/>
                                     <constraint firstItem="wkI-ED-5b5" firstAttribute="leading" secondItem="7y0-8Y-6RX" secondAttribute="leading" id="iN5-fE-Wo3"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="poZ-iM-2as"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axu-yF-5up">
-                                <rect key="frame" x="0.0" y="322" width="375" height="24"/>
+                                <rect key="frame" x="0.0" y="321.5" width="375" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Hcd-gY-Pld"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3X-KR-6pq">
-                                <rect key="frame" x="0.0" y="346" width="375" height="321"/>
+                                <rect key="frame" x="0.0" y="345.5" width="375" height="321.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -75,7 +75,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Axu-yF-5up" secondAttribute="trailing" constant="-16" id="eeT-ey-8jp"/>
                             <constraint firstItem="Axu-yF-5up" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="gz7-5s-j4S"/>
                             <constraint firstItem="7y0-8Y-6RX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="kN5-Nm-3r4"/>
-                            <constraint firstItem="7y0-8Y-6RX" firstAttribute="bottom" secondItem="Axu-yF-5up" secondAttribute="top" id="p40-qD-Ek4"/>
+                            <constraint firstItem="wkI-ED-5b5" firstAttribute="bottom" secondItem="Axu-yF-5up" secondAttribute="top" priority="750" id="lSz-Hd-jBw"/>
+                            <constraint firstItem="7y0-8Y-6RX" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Axu-yF-5up" secondAttribute="top" priority="750" id="p40-qD-Ek4"/>
                         </constraints>
                     </view>
                     <connections>

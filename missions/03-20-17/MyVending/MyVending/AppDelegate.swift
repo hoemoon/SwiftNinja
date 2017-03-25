@@ -45,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let machine = vc.getMachine()
         let dateOfMachine:Data = NSKeyedArchiver.archivedData(withRootObject: machine)
         UserDefaults.standard.set(dateOfMachine, forKey: "machine")
-        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

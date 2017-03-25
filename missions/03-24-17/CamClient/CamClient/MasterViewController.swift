@@ -42,10 +42,12 @@ class MasterViewController: UITableViewController {
         task.readData(ofMinLength: 0, maxLength: 8, timeout: 0) { (data, bool, error) in
             let received = String(data: data!, encoding: String.Encoding.utf8)!
             let integer = Int(received.trimmingCharacters(in: CharacterSet.whitespaces))!
-            self.objects.insert(integer, at: 0)
-//            print(self.objects)
+            let date = NSDate(timeIntervalSinceNow: Double(integer))
+            self.objects.insert(date, at: 0)
             let indexPath = IndexPath(row: 0, section: 0)
-            self.tableView.insertRows(at: [indexPath], with: .automatic)
+            DispatchQueue.main.async {
+                self.tableView.insertRows(at: [indexPath], with: .automatic)
+            }
         }
         task.resume()
     }
@@ -55,7 +57,7 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! Int
+                let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
@@ -77,7 +79,7 @@ class MasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! Int
+        let object = objects[indexPath.row] as! NSDate
         cell.textLabel!.text = object.description
         return cell
     }

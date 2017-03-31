@@ -12,7 +12,7 @@ class DetailViewController: UIViewController, URLSessionStreamDelegate {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var camImageView: UIImageView!
-
+    
     func configureView() {
         // Update the user interface for the detail item.
         
@@ -26,17 +26,7 @@ class DetailViewController: UIViewController, URLSessionStreamDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let task = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.current).streamTask(withHostName: "127.0.0.1", port: 8000)
-        task.readData(ofMinLength: 0, maxLength: 8, timeout: 1000) { (data, bool, error) in
-            let first = Int(String(data: data!, encoding: String.Encoding.utf8)!)!
-            task.readData(ofMinLength: 0, maxLength: first, timeout: 1000) { (dataInner, bool, error) in
-                DispatchQueue.main.async {
-                    self.camImageView.image =  UIImage(data: dataInner!)
-                    task.captureStreams()
-                }
-            }
-        }
-        task.resume()
+        readTask()
         self.configureView()
     }
     
@@ -54,12 +44,26 @@ class DetailViewController: UIViewController, URLSessionStreamDelegate {
     
     func urlSession(_ session: URLSession, streamTask: URLSessionStreamTask, didBecome inputStream: InputStream, outputStream: OutputStream) {
         print("didBecome")
+        readTask()
         let data: Data = "ACK".data(using: String.Encoding.utf8)!
         data.withUnsafeBytes { (u8Ptr: UnsafePointer<UInt8>) in
             let rawPtr = UnsafePointer(u8Ptr)
             outputStream.write(rawPtr, maxLength: data.count)
         }
-        self.viewDidLoad()
+    }
+    
+    func readTask() {
+        let task = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.current).streamTask(withHostName: "127.0.0.1", port: 8000)
+        task.readData(ofMinLength: 0, maxLength: 8, timeout: 1000) { (data, bool, error) in
+            let first = Int(String(data: data!, encoding: String.Encoding.utf8)!)!
+            task.readData(ofMinLength: 0, maxLength: first, timeout: 1000) { (dataInner, bool, error) in
+                DispatchQueue.main.async {
+                    self.camImageView.image =  UIImage(data: dataInner!)
+                    task.captureStreams()
+                }
+            }
+        }
+        task.resume()
     }
 
     override func didReceiveMemoryWarning() {
